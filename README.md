@@ -1,1 +1,1 @@
-# Seguridad-en-Redes
+# Configuración de seguridad en equipos de redes.
