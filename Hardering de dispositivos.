@@ -1,28 +1,28 @@
-CONFIGURAR CONTRASEÑA ENABLE SECRET.
+#CONFIGURAR CONTRASEÑA ENABLE SECRET.#
 
 Router(config)#enable secret cisco
 
-CREAR USUARIOS EN BASE DE DATOS LOCAL. (USER:admin PASS:cisco)
+#CREAR USUARIOS EN BASE DE DATOS LOCAL.# (USER:admin PASS:cisco)
 
 Router(config)#username admin secret cisco
 
-ESTABLECER UN ALONGITUD MINIMA DE CARACTERES EN LA PASSWORD.(8)
+#ESTABLECER UNA LONGITUD MINIMA DE CARACTERES EN LA PASSWORD.#(8)
 
 Router(config)#security passwords min-length 8
 
-CONFIGURAR LINEA VTY CON TIEMPO DE 10 seg Y LOGIN LOCAL
+#CONFIGURAR LINEA VTY CON TIEMPO DE 10 seg Y LOGIN LOCAL.#
 
 Router(config)#line vty 0 4
 Router(config-line)#exec-timeout 00 10
 Router(config-line)#login local 
 Router(config-line)#exit
 
-CONFIGURAR UN TIEMPO DE BLOQUEO ANTE UNA SECUENCIA DE AUTENTICACIONES FALLIDAS EN UN TIEMPO DETERMINADO
+#CONFIGURAR UN TIEMPO DE BLOQUEO ANTE UNA SECUENCIA DE AUTENTICACIONES FALLIDAS EN UN TIEMPO DETERMINADO.#
 "BLOQUEO DE 120 seg. ANTE 3 AUTENTICACIONES FALLIDAS EN 10seg"
 
 Router(config)#login block-for 120 attempts 3 within 10
 
-CONFIGURAR ACL PARA PERMITIR ACCESO A UN DISPOSITIVO, DURANTE EL TIEMPO DE BLOQUEO.
+#CONFIGURAR ACL PARA PERMITIR ACCESO A UN DISPOSITIVO, DURANTE EL TIEMPO DE BLOQUEO.#
 
 Router(config)#ip access-list standard ADMIN
 Router(config-std-nacl)#permit 10.0.0.2 (IP del administrador)
@@ -30,7 +30,7 @@ Router(config-std-nacl)#exit
 Router(config)# login delay 3
 Router(config)# login quiet-mode access-class ADMIN
 
-CONFIGURAR SSH.
+#CONFIGURAR SSH.#
 
 Router(config)#hostname R1
 R1(config)#ip domain-name cisco.com
@@ -39,14 +39,14 @@ R1(config)#ip ssh version 2
 R1(config)#ip ssh time-out 10
 R1(config)#ip ssh authentication-retries 2
 
-HABILITAR SSH EN LAS LINEAS VTY.
+#HABILITAR SSH EN LAS LINEAS VTY.#
 
 R1(config)#line vty 0 4
 R1(config-line)#transport input ssh
 R1(config-line)#login local 
 R1(config-line)#exit
 
-CONECTARSE EN FORMA REMOTA DESDE UN PC.
+#CONECTARSE EN FORMA REMOTA DESDE UN PC.#
 
 PC>ssh -l admin 10.0.0.1
 
