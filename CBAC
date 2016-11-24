@@ -17,7 +17,7 @@ BORDE(config)# ip inspect name CBAC icmp
 
 CONFIGURAR EL MONITOREO Y SYSLOG DE LOS EVENTOS 
 
-ip inspect audit-trail
+BORDE(config)# ip inspect audit-trail
 BORDE(config)# service timestamps debug datetime msec
 BORDE(config)# logging host (ip syslog)
 
