@@ -1,6 +1,6 @@
 CREAR ACL NOMBRADA QUE DENIEGA EL TRAFICO OUTSIDE-INSIDE.
 
-ip access-list extended OUTSIDE
+BORDE(config)# ip access-list extended OUTSIDE
 BORDE(config-ext-nacl)# deny ip any any
 BORDE(config-ext-nacl)# exit
 
